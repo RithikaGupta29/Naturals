@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+  <html>
+  
+  
+    <head>
+        <title>Feedback</title>
+        <style>
+          * {
+            box-sizing: border-box;
+          }
+
+           body {
+             background-color: #f1f1f1;
+             background-image: url(./Images/bk2.jpg);
+             background-size: cover;
+             padding: 20px;
+             font-family: Arial;
+             text-align: center;
+          }
+          h1{
+            font-family: poppins;
+          }
+        </style>
+        <!--srcipt src="registerjs.js"></script--->     
+  </head>
+
+<form action="https://sheetdb.io/api/v1/um261clt04ch0" method="POST" id="sheetdb-form">
+    <h1>Feedback</h1>
+    Username: <input name="data[Username]"><br>
+    Feedback:<input name="data[Feedback]">
+    <textarea id="subject" name="data[feedback1] subject" placeholder="Write something.." style="height: 250px" >
+    </textarea>
+
+
+    
+    
+    <button type="Submit">Submit</button>
+</form>
+<script>
+    var form = document.getElementById('sheetdb-form');
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(form.action, {
+          method : "POST",
+          body: new FormData(document.getElementById("sheetdb-form")),
+      }).then(
+          response => response.json()
+      ).then((html) => {
+        // you can put any JS code here
+        window.location.href = '1.html'
+      });
+    });
+  </script>
+  </html>

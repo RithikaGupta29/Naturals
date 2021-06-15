@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1>Home Remedies</h1>
+<hr>
+
+<h2>Simple And Easy</h2>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('cough')"> cough</button>
+  <button class="btn" onclick="filterSelection('cold')"> Cold</button>
+  <button class="btn" onclick="filterSelection('tan')"> tan</button>
+  <button class="btn" onclick="filterSelection('hairfall')"> hairfall</button>
+
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column cough">
+    <div class="content">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm_7XbbGmy7-QXZRYlIeXDUD2ADF5CzKVBzA&usqp=CAU" alt="Mountains" style="width:100%">
+      <h4>cough</h4>
+      <p>SALT WATER
+
+        Salt water calms the itch and also helps treat dry cough and also regular cough sooner. Simply add a tablespoon pink salt or sea salt to 1 cup warm water and gargle with it.
+        
+        </p>
+    </div>
+  </div>
+  <div class="column cough">
+    <div class="content">
+    <img src="data:image/jpeg;base64,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" alt="Lights" style="width:100%">
+      <h4>cough</h4>
+      <p>To use honey to treat a cough, mix 2 teaspoons (tsp) with warm water or an herbal tea. Drink this mixture once or twice a day. Do not give honey to children under 1 yearTrusted Source of age</p>
+    </div>
+  </div>
+  
+  <div class="column tan">
+    <div class="content">
+    <img src="data:image/jpeg;base64,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" alt="Car" style="width:100%">
+      <h4>Tan</h4>
+      <p>Soak a cotton ball in fresh and organic coconut milk and dab it all over the face. Leave it on till it’s absorbed into the skin or dries completely. Wash it off with a mild cleanser.
+
+      </p>
+    </div>
+  </div>
+ 
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>
