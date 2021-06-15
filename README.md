@@ -1,0 +1,2 @@
+# Naturals
+Home remedies page
